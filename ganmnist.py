@@ -106,9 +106,9 @@ def train(epochs=1, batch_size=128):
     generator = get_generator(adam)
     discriminator = get_discriminator(adam)
     gan = get_gan_network(discriminator, random_dim, generator, adam)
-    for e in xrange(1, epochs+1):
-        print '-'*15, 'Epoch %d' % e, '-'*15
-        for _ in tqdm(xrange(batch_count)):
+    for e in range(1, epochs+1):
+        print( '-'*15, 'Epoch %d' % e, '-'*15)
+        for _ in tqdm(range(int(batch_count))):
             # Get a random set of input noise and images
             noise = np.random.normal(0, 1, size=[batch_size, random_dim])
             image_batch = x_train[np.random.randint(0, x_train.shape[0], size=batch_size)]
